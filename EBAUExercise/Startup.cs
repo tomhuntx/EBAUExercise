@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System;
 
 namespace EBAUExercise
 {
@@ -17,7 +18,7 @@ namespace EBAUExercise
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+		public IConfiguration Configuration { get; }
 
         public ILifetimeScope AutofacContainer { get; private set; }
 

@@ -11,8 +11,9 @@ namespace EBAUExercise.Services
             _mockDataRepository = mockDataRepository;
         }
 
-        private bool DoWork()
+        public bool DoWork()
         {
+            Counter.Add();
             return _mockDataRepository.Save();
         }
     }

@@ -1,4 +1,5 @@
-﻿using EBAUExercise.Services;
+﻿using EBAUExercise.Repository;
+using EBAUExercise.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EBAUExercise.Controllers
@@ -17,12 +18,18 @@ namespace EBAUExercise.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            // eg. CountingService.Increment()
+            ReportService a = new ReportService(new SampleDataRepository());
+
+            // Reset counter to 0
+            Counter.Reset();
+
+            // Increment counter
+            Counter.Add();
 
             return Ok(new
             {
                 IsDataSaved = _doWorkService.DoWork(),
-                Count = 1 // return the current value of the counter here.
+                Count = Counter.GetCount() // return the current value of the counter here.
             });
         }
     }
