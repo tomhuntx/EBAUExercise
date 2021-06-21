@@ -48,9 +48,13 @@ namespace EBAUExercise.Services
 				}
             }
 
-
             // Order the history by the customer ID in ascending order
             customerHistory = customerHistory.OrderBy(history => history.CustomerId).ToList();
+
+            foreach (OrderByCustomer h in customerHistory)
+            {
+                Console.WriteLine("{0}, {1}, {2}", h.CustomerId, h.OrderCount, h.OrderTotal);
+            }
 
             return customerHistory;
         }
@@ -82,12 +86,16 @@ namespace EBAUExercise.Services
                 else
                 { // Existing history for this customer is not found, create new history for them
                     customerHistory.Add(new OrderByDate(orderDate.ToString("dd/MM/yyyy"), 1, order.OrderTotal));
-
                 }
             }
 
             // Order the history by the date in ascending order
             customerHistory = customerHistory.OrderBy(history => history.OrderDate).ToList();
+
+            foreach (OrderByDate h in customerHistory)
+            {
+                Console.WriteLine("{0}, {1}, {2}", h.OrderDate, h.OrderCount, h.OrderTotal);
+            }
 
             return customerHistory;
         }
