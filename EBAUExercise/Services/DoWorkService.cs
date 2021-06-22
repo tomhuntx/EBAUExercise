@@ -14,6 +14,7 @@ namespace EBAUExercise.Services
         public bool DoWork()
         {
             Counter.Add();
+
             return _mockDataRepository.Save();
         }
     }

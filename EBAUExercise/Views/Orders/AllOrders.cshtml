@@ -1,0 +1,28 @@
+﻿@model EBAUExercise.Models.ListModel<CustomerOrder>
+
+@{
+ViewBag.Title = "AllOrders";
+}
+
+<table class="customer-table" id="#chart1">
+    <tr>
+        <th> @Html.DisplayNameFor(model => model.Items[0].CustomerId)</th>
+        <th> @Html.DisplayNameFor(model => model.Items[0].OrderId)</th>
+        <th> @Html.DisplayNameFor(model => model.Items[0].OrderTotal) </th>
+        <th> @Html.DisplayNameFor(model => model.Items[0].OrderDate) </th>
+    </tr>
+    <tr>
+        @if (Model != null)
+        {
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@item.CustomerId</td>
+                    <td>@item.OrderId</td>
+                    <td>@item.OrderTotal</td>
+                    <td>@item.OrderDate</td>
+                </tr>
+            }
+        }
+    </tr>
+</table>

@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Please select a button to generate xyz.</p>
+    <div class="button-container">
+        <button type="button" class="button -blue" onclick="alert('Hello world!')">Call /Tasks</button>
+    </div>
+
+    <h1 class="display-4">Reports</h1>
+    <p>Press one of the three buttons below to display the corresponding order data.</p>
+
+    <div class="button-container">
+
+        @using (Html.BeginForm("ViewOrders", "Home", FormMethod.Post))
+        {
+            <button type="submit" class="button button-long -blue" onclick="ShowChart('#chart1')">View All Orders</button>
+        }
+
+        @using (Html.BeginForm("ViewOrdersByCustomer", "Home", FormMethod.Post))
+        {
+            <button type="submit" class="button button-long -blue" onclick="ShowChart('#chart2')">Orders By Customer</button>
+        }
+
+        @using (Html.BeginForm("ViewOrdersByDate", "Home", FormMethod.Post))
+        {
+            <button type="submit" class="button button-long -blue" onclick="ShowChart('#chart3')">Orders By Date</button>
+        }
+    </div>
+
+    <div class="container">
+        <partial name="../Orders/AllOrders.cshtml" />
+    </div>
+</div>
+

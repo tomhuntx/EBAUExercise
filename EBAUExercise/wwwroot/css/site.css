@@ -69,3 +69,111 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+
+
+/* CuSTOM */
+
+.button-container {
+    display: flex;
+    margin: 15px auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    outline: none;
+    display: flex;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 150ms linear;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none !important;
+    text-transform: none;
+    text-transform: capitalize;
+    color: #fff;
+    border: 0 none;
+    border-radius: 36px;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.3;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 160px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, .2);
+}
+
+.button-long {
+    font-size: 15px;
+    width: 15em;
+}
+
+.button:hover {
+    transition: all 150ms linear;
+    opacity: .75;
+}
+
+.button:active {
+    transition: all 150ms linear;
+    opacity: .5;
+    outline: none;
+}
+
+.button:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+    outline: none;
+}
+
+.button.-blue {
+    color: white;
+    background: #0071bd;
+}
+
+.button.-black {
+    color: black;
+    background: #e8e8e8;
+}
+
+
+/* Customer Tables */
+container {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.customer-table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+#chart1, #chart2, #chart3 {
+    display: inline-block;
+}
+
+.customer-table td, .customer-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 200px;
+}
+
+.customer-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.customer-table th {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    background-color: #50a0eb;
+    color: white;
+}
