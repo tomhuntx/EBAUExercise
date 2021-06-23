@@ -4,34 +4,35 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Please select a button to generate xyz.</p>
+    <p class="container textbox">
+        Pressing this button alerts the results of the TasksController endpoint.
+    </p>
     <div class="button-container">
-        <button type="button" class="button -blue" onclick="alert('Hello world!')">Call /Tasks</button>
+        <button type="button" class="button -blue" onclick="CallTasks()">Call Tasks</button>
     </div>
 
-    <h1 class="display-4">Reports</h1>
-    <p>Press one of the three buttons below to display the corresponding order data.</p>
+    <h1 class="display-4 gaptop">Reports</h1>
+    <div class="container textbox">
+        <p>
+            The three buttons below can be pressed to reveal their corresponding order reports.
+            The <b>View All Orders</b> button reveals every individual order,
+            <b>Orders By Customer</b> shows all orders for each customer ID,
+            and <b>Orders By Date</b> shows all orders by their date.
+        </p>
+    </div>
 
     <div class="button-container">
+        <button type="button" class="button button-long -blue" onclick="ShowChart('#chart1')">View All Orders</button>
 
-        @using (Html.BeginForm("ViewOrders", "Home", FormMethod.Post))
-        {
-            <button type="submit" class="button button-long -blue" onclick="ShowChart('#chart1')">View All Orders</button>
-        }
+        <button type="button" class="button button-long -blue" onclick="ShowChart('#chart2')">Orders By Customer</button>
 
-        @using (Html.BeginForm("ViewOrdersByCustomer", "Home", FormMethod.Post))
-        {
-            <button type="submit" class="button button-long -blue" onclick="ShowChart('#chart2')">Orders By Customer</button>
-        }
-
-        @using (Html.BeginForm("ViewOrdersByDate", "Home", FormMethod.Post))
-        {
-            <button type="submit" class="button button-long -blue" onclick="ShowChart('#chart3')">Orders By Date</button>
-        }
+        <button type="button" class="button button-long -blue" onclick="ShowChart('#chart3')">Orders By Date</button>
     </div>
 
     <div class="container">
         <partial name="../Orders/AllOrders.cshtml" />
+        <partial name="../Orders/OrdersByCustomer.cshtml" />
+        <partial name="../Orders/OrdersByDate.cshtml" />
     </div>
 </div>
 

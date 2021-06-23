@@ -13,15 +13,12 @@ namespace EBAUExercise.Services
         public ReportService(SampleDataRepository sampleDataRepository)
         {
             _sampleDataRepository = sampleDataRepository;
-
-            CustomerReport();
-            StoreDailyReport();
         }
 
         /// <summary>
         /// Build and output a list of data that breaks down the data by customer id, taking count of orders and summing 'order total'.
         /// </summary>
-        private List<OrderByCustomer> CustomerReport()
+        public List<OrderByCustomer> CustomerReport()
         {
             var customerOrders = _sampleDataRepository.GetDataset;
             List<OrderByCustomer> customerHistory = new();
@@ -59,10 +56,10 @@ namespace EBAUExercise.Services
             return customerHistory;
         }
 
-        /// <summary>
-        /// Build and output a list of data that shows the number of orders by date and a sum of 'order total'.
-        /// </summary>
-        private List<OrderByDate> StoreDailyReport()
+		/// <summary>
+		/// Build and output a list of data that shows the number of orders by date and a sum of 'order total'.
+		/// </summary>
+		public List<OrderByDate> StoreDailyReport()
         {
             var customerOrders = _sampleDataRepository.GetDataset;
             List<OrderByDate> customerHistory = new();
@@ -99,5 +96,6 @@ namespace EBAUExercise.Services
 
             return customerHistory;
         }
-    }
+
+	}
 }

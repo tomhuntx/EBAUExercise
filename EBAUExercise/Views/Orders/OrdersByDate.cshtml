@@ -1,24 +1,24 @@
-﻿@model EBAUExercise.Models.ListModel<OrderByDate>
+﻿@model EBAUExercise.Models.OrderReports
 
 @{
-ViewBag.Title = "OrdersByDate";
+    ViewBag.Title = "OrdersByDate";
 }
 
 <table class="customer-table" id="#chart3">
     <tr>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderDate)</th>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderCount)</th>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderTotal) </th>
+        <th>Order Date</th>
+        <th>Order Count</th>
+        <th>Order Total</th>
     </tr>
     <tr>
         @if (Model != null)
         {
-            @foreach (var item in Model.Items)
+            @foreach (var item in Model.OrdersByDate.Items)
             {
             <tr>
                 <td>@item.OrderDate</td>
                 <td>@item.OrderCount</td>
-                <td>@item.OrderTotal</td>
+                <td>&#36;@item.OrderTotal</td>
             </tr>
             }
         }

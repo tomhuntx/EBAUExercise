@@ -1,4 +1,4 @@
-﻿@model EBAUExercise.Models.ListModel<OrderByCustomer>
+﻿@model EBAUExercise.Models.OrderReports
 
 @{
     ViewBag.Title = "OrdersByCustomer";
@@ -6,19 +6,19 @@
 
 <table class="customer-table" id="#chart2">
     <tr>
-        <th> @Html.DisplayNameFor(model => model.Items[0].CustomerId) </th>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderCount)</th>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderTotal) </th>
+        <th>Customer ID </th>
+        <th>Order Count</th>
+        <th>Order Total</th>
     </tr>
     <tr>
         @if (Model != null)
         {
-            @foreach (var item in Model.Items)
+            @foreach (var item in Model.OrdersByCustomer.Items)
             {
             <tr>
                 <td>@item.CustomerId</td>
                 <td>@item.OrderCount</td>
-                <td>@item.OrderTotal</td>
+                <td>&#36;@item.OrderTotal</td>
             </tr>
             }
         }

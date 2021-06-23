@@ -1,7 +1,7 @@
 ﻿using EBAUExercise.Models;
+using EBAUExercise.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace EBAUExercise.Controllers
@@ -17,36 +17,16 @@ namespace EBAUExercise.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
-		}
-
-		[HttpPost]
-		public ActionResult ViewOrders()
-		{
 			Repository.SampleDataRepository db = new();
-			ListModel<CustomerOrder> orders = new(db.GetDataset);
+			OrderReports reports = new()
+			{
+				CustomerOrders = new(db.GetDataset),
+				OrdersByCustomer = new(new ReportService(db).CustomerReport()),
+				OrdersByDate = new(new ReportService(db).StoreDailyReport())
+			};
 
-			return View("Index", orders);
+			return View(reports);
 		}
-
-		[HttpPost]
-		public ActionResult ViewOrdersByCustomer()
-		{
-			Repository.SampleDataRepository db = new();
-			ListModel<CustomerOrder> orders = new(db.GetDataset);
-
-			return View("Index", orders);
-		}
-
-		[HttpPost]
-		public ActionResult ViewOrdersByDate()
-		{
-			Repository.SampleDataRepository db = new();
-			ListModel<CustomerOrder> orders = new(db.GetDataset);
-
-			return View("Index", orders);
-		}
-
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()

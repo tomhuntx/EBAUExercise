@@ -6,6 +6,7 @@ namespace EBAUExercise.Models
     /// <summary>
     /// Generc List Model Class
     /// </summary>
+    /// 
     public class ListModel<T>
     {
         public List<T> Items { get; set; }

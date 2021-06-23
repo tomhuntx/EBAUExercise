@@ -86,7 +86,7 @@ body {
     display: flex;
     overflow: hidden;
     margin: 10px;
-    padding: 10px 12px;
+    padding: 10px 25px;
     cursor: pointer;
     user-select: none;
     transition: all 150ms linear;
@@ -110,8 +110,7 @@ body {
 }
 
 .button-long {
-    font-size: 15px;
-    width: 15em;
+    padding: 10px 100px;
 }
 
 .button:hover {
@@ -141,11 +140,19 @@ body {
     background: #e8e8e8;
 }
 
+.textbox {
+    width: 70%;
+    padding: 20px 0px 5px 0px;
+}
+
+.gaptop {
+    margin-top: 30px;
+}
 
 /* Customer Tables */
 container {
     display: flex;
-    margin: auto;
+    margin: auto 50px;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -155,10 +162,11 @@ container {
     border-collapse: collapse;
     width: 100%;
     text-align: center;
+    display: none;
 }
 
 #chart1, #chart2, #chart3 {
-    display: inline-block;
+    display: none;
 }
 
 .customer-table td, .customer-table th {

@@ -1,25 +1,25 @@
-﻿@model EBAUExercise.Models.ListModel<CustomerOrder>
+﻿@model EBAUExercise.Models.OrderReports
 
 @{
-ViewBag.Title = "AllOrders";
+    ViewBag.Title = "AllOrders";
 }
 
 <table class="customer-table" id="#chart1">
     <tr>
-        <th> @Html.DisplayNameFor(model => model.Items[0].CustomerId)</th>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderId)</th>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderTotal) </th>
-        <th> @Html.DisplayNameFor(model => model.Items[0].OrderDate) </th>
+        <th>Customer ID</th>
+        <th>Order ID</th>
+        <th>Order Total</th>
+        <th>Time of Order</th>
     </tr>
     <tr>
         @if (Model != null)
         {
-            @foreach (var item in Model.Items)
+            @foreach (var item in Model.CustomerOrders.Items)
             {
                 <tr>
                     <td>@item.CustomerId</td>
                     <td>@item.OrderId</td>
-                    <td>@item.OrderTotal</td>
+                    <td>&#36;@item.OrderTotal</td>
                     <td>@item.OrderDate</td>
                 </tr>
             }
